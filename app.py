@@ -1,12 +1,20 @@
-from models.alert import Alert
+from flask import Flask
+from views.items import item_blueprint
+from views.alerts import alert_blueprint
 
-alert = Alert('cd1f17270ebf4fbfb17dc7305079a0c9', 2000)
-alert.save_to_mongo()
+app = Flask(__name__)
+
+app.register_blueprint(item_blueprint, url_prefix='/items')
+app.register_blueprint(alert_blueprint, url_prefix='/alerts')
 
 
+if __name__ == '__main__':
+    app.run(debug=True)
 
-
-
+# from models.alert import Alert
+#
+# alert = Alert('cd1f17270ebf4fbfb17dc7305079a0c9', 2000)
+# alert.save_to_mongo()
 
 # from models.item import Item
 #

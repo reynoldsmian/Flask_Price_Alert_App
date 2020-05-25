@@ -1,7 +1,6 @@
-from typing import Dict, List
+from typing import Dict
 from models.item import Item
 import uuid
-from common.database import Database
 from models.model import Model
 
 
@@ -21,9 +20,6 @@ class Alert(Model):
             'price_limit': self.price_limit,
             'item_id': self.item_id
         }
-
-    def save_to_mongo(self):
-        Database.insert(self.collection, self.json())
 
     def load_item_price(self) -> float:
         self.item.load_price()
