@@ -1,6 +1,7 @@
 import pymongo
 from typing import Dict
 
+
 class Database:
     URI = 'mongodb://127.0.0.1:27017/pricing'
     DATABASE = pymongo.MongoClient(URI).get_database()
@@ -24,4 +25,3 @@ class Database:
     @staticmethod
     def remove(collection: str, query: Dict) -> Dict:
         return Database.DATABASE[collection].remove(query)
-
