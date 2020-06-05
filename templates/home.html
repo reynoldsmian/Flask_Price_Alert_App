@@ -2,6 +2,9 @@
 {% block content %}
     <div class="jumbotron">
         <h1 class="display-4">Pricing Service</h1>
+        {% if session['email'] != None %}
+        <p class="lead">Welcome {{ session['email'] }}!</p>
+        {% endif %}
         <p class="lead">Scans online store websites to alert you of price drops. From Udemy 'Complete Python Web Course'</p>
         <hr class="my-4" />
         <p>Sign up, and get started by adding the URL of an item that you wish to track</p>

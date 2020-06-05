@@ -10,7 +10,9 @@ def requires_login(f: Callable) -> Callable:
             flash('You need to be signed in for this page.', 'danger')
             return redirect(url_for('users.login_user'))
         return f(*args, **kwargs)
+
     return decorated_function
+
 
 def requires_admin(f: Callable) -> Callable:
     @functools.wraps(f)
@@ -19,4 +21,5 @@ def requires_admin(f: Callable) -> Callable:
             flash('You need to be an admin to access this page.', 'danger')
             return redirect(url_for('users.login_user'))
         return f(*args, **kwargs)
+
     return decorated_function

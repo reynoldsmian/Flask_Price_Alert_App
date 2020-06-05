@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, session
 from views.alerts import alert_blueprint
 from views.stores import store_blueprint
 from views.users import user_blueprint
@@ -10,8 +10,11 @@ app.config.update(
     ADMIN=os.environ.get('ADMIN')
 )
 
+
 @app.route('/')
 def home():
+    if not session.get('email'):
+        session['email'] = None
     return render_template('home.html')
 
 

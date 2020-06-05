@@ -20,9 +20,9 @@
                 <a class="nav-item nav-link" href="{{ url_for('users.register_user') }}">Sign up</a>
             </div>
             {% if session['email'] != None %}
-            <div class="navbar-nav ml-auto">
-                <a class="btn btn-outline-danger my-2 my-sm-0" href="{{ url_for('users.logout') }}">Logout</a>
-            </div>
+                <div class="navbar-nav ml-auto">
+                    <a class="btn btn-outline-danger my-2 my-sm-0" href="{{ url_for('users.logout') }}">Logout</a>
+                </div>
             {% endif %}
         </div>
     </nav>
